@@ -37,13 +37,13 @@ main() {
     ebook-convert "$assignment_pdf" out.txt >/dev/null
 
     # Extract the module heading
-    module_heading=$(grep -E "Innlevering [0-9]{1,2}" -o out.txt |  tr -d '\n') 
+    module_heading=$(grep -E "Innlevering [0-9]{1,2}.*$" -o out.txt |  tr -d '\n') 
  
     # Extracts the module number. "Innlevering 8" -> "8"
     module_number=$(echo "$module_heading" | grep -E "[0-9]{1,2}" -o)
 
     # The module_name an English versjon module_heading where spaces are replaced with a hyphene
-    module_name=$(echo "$module_heading" | sed 's/Innlevering/module/' | tr " " "-")
+    module_name=$(echo "$module_heading" | grep -E "Innlevering [0-9]{1,2}" -o | sed 's/Innlevering/module/' | tr " " "-")
 
     # Let the user know if a directory with the module's name already exists.
     # We could programmatically ask the user if they'd like to overwrite the content

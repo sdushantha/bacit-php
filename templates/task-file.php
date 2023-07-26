@@ -2,7 +2,7 @@
 // The reason why we store the task name in a variable instead of directly
 // using it in the HTML code is because this file gets inlcuded by index.php,
 // which then access $task_name so that it can add it to it's list
-$task_name = "Oppgave 4: liten kalkulator";
+$task_name = "{{{TASK_NAME}}}";
 
 // In index.php we import this file so that we can access $task_name.
 // Without the if-statement below, the HTML code will displayed in index.php.
@@ -12,6 +12,8 @@ include "index.php";
 ?>
 
 <?="<h1>$task_name</h1>"?>
+
+<?="<p>HUSK Å FULLFØRE DENNE OPPGAVEN!</p>"?>
 
 <?php generate_footer();?>
 <?php endif;?>
