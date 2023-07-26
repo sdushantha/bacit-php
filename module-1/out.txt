@@ -1,0 +1,84 @@
+Institutt for informasjonssystemer
+
+Kom i gang med webutvikling og PHP
+
+IS-115 Webprogrammering i PHP | Peter André Busch Innlevering 1: kom i gang med webutvikling og PHP
+
+
+
+Gjør innleveringene i Canvas i påkrevd format (se Canvas for beskrivelse). Innleveringer som ikke er i dette formatet, blir ikke vurdert. Oppgave 1 skal kun gjøres i Discord, men husk å inkludere brukernavnet ditt i innleveringen. Bruk diskusjonsforumet i emnet aktivt dersom du står fast – kanskje har andre studenter det samme problemet som deg, eller kan hjelpe. Og hvis du får det til selv, så kanskje du kan hjelpe andre som står fast?
+
+
+
+Oppgave 1: bli kjent med diskusjonsforumet
+
+
+
+Det er viktig å kunne bruke forumet ettersom vi ønsker å stimulere til faglig aktivitet på forumet i dette emnet. Trenger du hjelp til installasjon? Vil du ha noen hint for å komme i gang med en øving? Ser du ikke feilen i koden du sliter med å få til å fungere? Vil du dele tips og gode erfaringer? Eller kanskje hjelpe andre? Forumet er et viktig redskap utover i emnet. Faglærer og hjelpelærere vil følge med på forumet underveis i kurset.
+
+
+
+Du skal nå søke litt rundt på weben etter gode PHP-ressurser eller Docker-ressurser (lenke til nettsted, video e.l.) som er verdt å dele. Husk å sjekke hva som finnes i forumet fra før av. Post minst én god ressurs. Siden vi er i starten av emnet må det ikke være for avansert, med mindre du mener at denne kan bli nyttig i løpet av emnet. Dersom du ikke finner noen ressurser å poste, så kan du svare på et innlegg om en ressurs som en medstudent har postet. Du må begrunne hvorfor du synes denne var nyttig. Altså får du velge selv: Enten post et innlegg eller svar på en annen sitt innlegg.
+
+
+
+Bruk kanalen #modul-1.
+
+
+
+
+
+IS-115 Webprogrammering i PHP
+
+
+
+Side 1 av 2
+
+
+
+Oppgave 2: innstillinger i php.ini
+
+
+
+Vi skal lære om innebygde funksjoner i neste modul, men her kommer en som er viktig å kjenne til nå.
+
+Lag et script som har én linje med kode; et kall til funksjonen phpinfo(). Kjør scriptet i nettleseren. Da ser du mye tekst på en side. Sjekk hva innstillingene display_errors og document_root er satt til.
+
+Hint: Søk i teksten som kommer fram, ellers blir det tidkrevende å lete. Svar også på hvorfor du tror det er lurt å kjenne til bruk av funksjonen phpinfo().
+
+
+
+Oppgave 3: alderen til en person
+
+
+
+Lag et script som har to variabler: et tall $alder og en tekststreng $navn. Informasjonen om personen og dens alder skal skrives ut i en tabell, en nummerert liste, en punktmerket liste og inne i en paragraf (et <p>-element).
+
+
+
+Oppgave 4: liten kalkulator
+
+
+
+Lag en liten kalkulator som tar utgangspunkt i to tall $tall1 og $tall2. Scriptet skal regne ut summen og gjennomsnittet av disse tallene. Resultatet skal presenteres som en setning.
+
+
+
+Oppgave 5: hilsen
+
+
+
+Lag et script med to variabler $navn og $hilsen. Skriv en setning som ser slik ut: God morgen [navn]!
+
+[hilsen]. Teksten i klammeparentesene må erstattes med innholdet i de respektive variablene.
+
+IS-115 Webprogrammering i PHP
+
+
+
+Side 2 av 2
+
+
+
+
+
