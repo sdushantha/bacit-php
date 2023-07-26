@@ -8,6 +8,7 @@ $task_name = "Oppgave 3: alderen til en person";
 // Without the if-statement below, the HTML code will displayed in index.php.
 // __FILE__ and $_SERVER['SCRIPT_FILENAME'] explaination: https://stackoverflow.com/a/29697427/9215267
 if (realpath(__FILE__) === realpath($_SERVER['SCRIPT_FILENAME'])):
+include "index.php";
 ?>
 
 <?="<h1>$task_name</h1>"?>
@@ -57,4 +58,5 @@ $alder = 42;
 <!-- Paragraph -->
 <p>Hei, jeg heter <?=$navn?> og jeg er <?=$alder?> år gammel</p>
 
+<?php generate_footer();?>
 <?php endif;?>
