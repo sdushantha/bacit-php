@@ -14,7 +14,7 @@ include "index.php";
 <?="<h1>$task_name</h1>"?>
 <ul>
     <li>Ved å sjekke verdien for <code>display_errors</code>, så ser jeg at Local og Master verdien er sastt til <code>Off</code></li>
-    <li>Veriden for <code>document_root</code> er <code><?=$_SERVER['DOCUMENT_ROOT']?></code>. <code>phpinfo()</code> er lurt å sjekke hvis man ser at det at programmet ikke funker som det skal. F.eks kan man sjekke om det som ligger i <code>php.ini</code> er riktig fordi den konfigurasjons filen kan påvirke veldig hvordan programmet oppfører seg.</li>
+    <li>Veriden for <code>document_root</code> er <code><?=$_SERVER['DOCUMENT_ROOT']?></code>. Det er lurt å sjekke  <code>phpinfo()</code> hvis man ser at det at programmet ikke funker som det skal. F.eks kan man sjekke om det som ligger i <code>php.ini</code> er riktig fordi den konfigurasjons filen kan påvirke veldig hvordan programmet oppfører seg.</li>
 </ul>
 
 <?php generate_footer();?>
