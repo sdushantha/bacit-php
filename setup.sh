@@ -19,7 +19,7 @@ main() {
     assignment_pdf="$1"
 
     # The PDF of the assignment needs to be provided
-    [ -z "$assignment_pdf" ] && print_error "Please provide the PDF to of the assignment"
+    [ -z "$assignment_pdf" ] && print_error "Please provide the PDF to of the assignment: setup.sh <FILE>"
 
     # Check if provided file is actually a PDF
     if ! file --mime-type "$assignment_pdf" | grep -Eq "application/pdf"; then
