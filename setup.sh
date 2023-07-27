@@ -6,12 +6,12 @@
 #
 
 print_error() {
-    printf "%b\n" "\e[91m✘\e[0m $1" >&2
+    printf "%b\n" "\e[91;1m✖\e[0m $1" >&2
     exit 1
 }
 
 print_good() {
-    printf "%b\n" "\033[92m✔\033[0m $1" >&2
+    printf "%b\n" "\033[92;1m✓\033[0m $1" >&2
 }
 
 main() {
