@@ -35,18 +35,18 @@ function generate_footer(){
     // Get the index of where the name of this PHP file is in the array
     $current_page_index = array_search($current_page, $pages);
 
-    echo '<a href="/">[Home]</a>&nbsp';
+    echo '<a href="index.php">[Home]</a>&nbsp';
 
     // If current page index is 1, we can't have a previous page that has a task
     if ($current_page_index > 1) {
         $prev_page = $pages[$current_page_index - 1];
-        echo '<a href="' . $prev_page . '">[Prev Task]</a>&nbsp';
+        echo '<a href="' . $prev_page . '">[Forrige Oppgave]</a>&nbsp';
     }
 
     // If current page index is at max, we can't possibly have a next page
     if ($current_page_index < count($pages) - 1) {
         $next_page = $pages[$current_page_index + 1];
-        echo '<a href="' . $next_page . '">[Next Task]</a>';
+        echo '<a href="' . $next_page . '">[Neste Oppgave]</a>';
     }
 
     echo "</div></footer>";
