@@ -89,7 +89,7 @@ main() {
 
     # Time for some clean up
     rm out.txt
-    mv "$assignment_pdf" "$module_name/$module_name.pdf"
+    cp "$assignment_pdf" "$module_name/$module_name.pdf"
 
     printf "%b\r" "\e[2K"
     print_good "Files have been setup!"
