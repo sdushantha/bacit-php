@@ -35,7 +35,7 @@ function generate_footer(){
     // Get the index of where the name of this PHP file is in the array
     $current_page_index = array_search($current_page, $pages);
 
-    echo '<a href="index.php">[Home]</a>&nbsp';
+    echo '<a href="index.php">[Hjem]</a>&nbsp';
 
     // If current page index is 1, we can't have a previous page that has a task
     if ($current_page_index > 1) {

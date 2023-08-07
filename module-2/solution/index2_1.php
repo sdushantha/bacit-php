@@ -15,7 +15,10 @@ include "index.php";
 
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $lastname = ucfirst(strtolower(preg_replace('/[0-9]+/', '', $_POST["name"])));
+    // 1. Replace all characters that are not a-z or A-Z
+    // 2. Make the whole string lowercase
+    // 3. Upper Case First letter
+    $lastname = ucfirst(strtolower(preg_replace('/[^a-zA-Z]/', '', $_POST["name"])));
     $length = strlen($lastname);
 
     // Store the values in the cookies. By doing this we can clear the previous submission
@@ -23,8 +26,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     setcookie("lastname", $lastname, time() + 3600, "/");
     setcookie("length", $length, time() + 3600, "/");
 
-    // Redirect back to the same page
+    // Redirect back to the same page.
     header("Location: " . $_SERVER["REQUEST_URI"]);
+
+    // Prevents further execution of code and issues
     exit();
 }
 ?>

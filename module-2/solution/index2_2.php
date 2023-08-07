@@ -13,7 +13,62 @@ include "index.php";
 
 <?="<h1>$task_name</h1>"?>
 
-<?="<p>HUSK Å FULLFØRE DENNE OPPGAVEN!</p>"?>
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    // 1. Strip HTML and PHP tags
+    // 2. Replace all characters that are not a-z or A-Z
+    // 3. Make the whole string lowercase
+    // 4. Upper Case First letter
+
+    // Test string: <script>alert(1)</script>
+    $lastname = ucfirst(strtolower(preg_replace('/[^a-zA-Z]/', '', strip_tags($_POST["name"]))));
+    $length = strlen($lastname);
+
+    // Store the values in the cookies. By doing this we can clear the previous submission
+    // when the user reloads the page
+    setcookie("lastname", $lastname, time() + 3600, "/");
+    setcookie("length", $length, time() + 3600, "/");
+
+    // Redirect back to the same page.
+    header("Location: " . $_SERVER["REQUEST_URI"]);
+
+    // Prevents further execution of code and issues
+    exit();
+}
+?>
+
+<body>
+    <p>Skriv inn etternavnet ditt</p>
+    <form method="post">
+        <input type="text" name="name" required>
+        <input type="submit" value="Send">
+    </form>
+</body>
+
+<!-- If the value exists inteh cookie, then output the results, if not, dont output anything. This allows us to not show the previous submission -->
+<?php if (!empty($_COOKIE["lastname"])) echo "<p>Etternavnet ditt er " . htmlspecialchars($_COOKIE['lastname']) . "</p>" ?>
+<?php if (!empty($_COOKIE["length"])) echo "<p>Etternavnet ditt har ". htmlspecialchars($_COOKIE['length']) . " bokstaver</p>" ?>
+
+
+<?php
+// Remove cookies when the user reloads the page
+// This way the previous results wont be shown on the page after reloading
+if (isset($_COOKIE["lastname"])) {
+    // Removes lastname from the $_COOKIE array
+    unset($_COOKIE["lastname"]);
+
+    // Removes lastname from browser's cookie storage 
+    setcookie("lastname", "", time() - 3600, "/");
+}
+
+if (isset($_COOKIE["length"])) {
+    // Removes length from the $_COOKIE array
+    unset($_COOKIE["length"]);
+
+    // Removes length from browser's cookie storage 
+    setcookie("length", "", time() - 3600, "/");
+}
+?>
 
 <?php generate_footer();?>
 <?php endif;?>
