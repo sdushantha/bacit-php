@@ -1,0 +1,18 @@
+version : "3"
+services:
+  web:
+    image: php:apache
+    volumes:
+      - "./:/var/www/html"
+    ports:
+      - 80:80
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=phpdb
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3333:3306
