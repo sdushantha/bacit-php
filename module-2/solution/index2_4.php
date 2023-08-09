@@ -13,7 +13,16 @@ include "index.php";
 
 <?="<h1>$task_name</h1>"?>
 
-<?="<p>HUSK Å FULLFØRE DENNE OPPGAVEN!</p>"?>
+<?php
+function difference($num1, $num2){
+    return $num1 - $num2;
+}
+
+$tall1 = 34;
+$tall2 = 12;
+?>
+
+<p>Differansen mellom <?=$tall1?> og <?=$tall2?> er <?=htmlentities(difference($tall1, $tall2));?>
 
 <?php generate_footer();?>
 <?php endif;?>

@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 if (!empty($_COOKIE["email"])) {
     // We must use htmlentities to prevent XSS/HTML injection
     // Fun fact, the following XSS payload is a valid email address: "><svg/onload=confirm(1)>"@x.y
-    echo "<p>" .  htmlentities($_COOKIE['email']) . " is " . ($_COOKIE['is_valid'] ? 'valid' : 'invalid') .  "</p>";
+    echo "<p>" .  htmlentities($_COOKIE['email']) . " er " . (!empty($_COOKIE['is_valid']) ? 'gyldig' : 'ikke gyldig') .  "</p>";
 }
 ?>
 
