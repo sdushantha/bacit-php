@@ -4,7 +4,7 @@
 // when its get inlcuded by other pages
 // __FILE__ and $_SERVER['SCRIPT_FILENAME'] explaination: https://stackoverflow.com/a/29697427/9215267
 if (realpath(__FILE__) === realpath($_SERVER['SCRIPT_FILENAME'])){
-    echo "<h1>Innlevering 1</h1>";
+    echo "<h1>Innlevering 1: kom i gang med webutvikling og PHP</h1>";
 
     // Quick way to get all the .php files in the current directory for each
     // task and adding a link to the file with the task name
