@@ -47,29 +47,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 if (!empty($_COOKIE["email"])) {
     // We must use htmlentities to prevent XSS/HTML injection
     // Fun fact, the following XSS payload is a valid email address: "><svg/onload=confirm(1)>"@x.y
-    echo "<p>" .  htmlentities($_COOKIE['email']) . " er " . (!empty($_COOKIE['is_valid']) ? 'gyldig' : 'ikke gyldig') .  "</p>";
+    echo "<p>" .  htmlentities($_COOKIE['email']) . " er <b>" . (!empty($_COOKIE['is_valid']) ? 'gyldig' : 'ikke gyldig') .  "</b></p>";
 }
 ?>
 
 <?php
 // Remove cookies when the user reloads the page
 // This way the previous results wont be shown on the page after reloading
-if (isset($_COOKIE["email"])) {
-    // Removes email from the $_COOKIE array
-    unset($_COOKIE["email"]);
+foreach ($_COOKIE as $key => $value){
+    // Removes the value from the $_COOKIE array
+    unset($_COOKIE[$key]);
 
-    // Removes email from browser's cookie storage 
-    setcookie("email", "", time() - 3600, "/");
-}
-
-if (isset($_COOKIE["is_valid"])) {
-    // Removes is_valid from the $_COOKIE array
-    unset($_COOKIE["is_vaild"]);
-
-    // Removes is_valid from browser's cookie storage 
-    setcookie("is_valid", "", time() - 3600, "/");
+    // Removes the value from browser's cookie storage 
+    setcookie($key, "", time() - 3600, "/");
 }
 ?>
-
 <?php generate_footer();?>
 <?php endif;?>

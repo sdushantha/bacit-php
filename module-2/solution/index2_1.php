@@ -49,20 +49,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <?php
 // Remove cookies when the user reloads the page
 // This way the previous results wont be shown on the page after reloading
-if (isset($_COOKIE["lastname"])) {
-    // Removes lastname from the $_COOKIE array
-    unset($_COOKIE["lastname"]);
+foreach ($_COOKIE as $key => $value){
+    // Removes the value from the $_COOKIE array
+    unset($_COOKIE[$key]);
 
-    // Removes lastname from browser's cookie storage 
-    setcookie("lastname", "", time() - 3600, "/");
-}
-
-if (isset($_COOKIE["length"])) {
-    // Removes length from the $_COOKIE array
-    unset($_COOKIE["length"]);
-
-    // Removes length from browser's cookie storage 
-    setcookie("length", "", time() - 3600, "/");
+    // Removes the value from browser's cookie storage 
+    setcookie($key, "", time() - 3600, "/");
 }
 ?>
 <?php generate_footer();?>
