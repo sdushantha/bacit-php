@@ -8,6 +8,8 @@ $task_name = "{{{TASK_NAME}}}";
 // Without the if-statement below, the HTML code will displayed in index.php.
 // __FILE__ and $_SERVER['SCRIPT_FILENAME'] explaination: https://stackoverflow.com/a/29697427/9215267
 if (realpath(__FILE__) === realpath($_SERVER['SCRIPT_FILENAME'])):
+
+// index.php is included as we use the generate_footer() function from it
 include "index.php";
 ?>
 

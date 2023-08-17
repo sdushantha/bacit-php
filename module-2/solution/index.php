@@ -1,4 +1,5 @@
 <?php
+ob_start();
 // This index.php file gets inlcuded by the other task pages so that the generate_footer()
 // function can be used. Therefore we must make sure the contents of index.php is not shown
 // when its get inlcuded by other pages

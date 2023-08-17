@@ -11,8 +11,6 @@ if (realpath(__FILE__) === realpath($_SERVER['SCRIPT_FILENAME'])):
 include "index.php";
 ?>
 
-<?="<h1>$task_name</h1>"?>
-
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $email = $_POST["email"];
@@ -33,6 +31,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
+
+<?="<h1>$task_name</h1>"?>
 
 <body>
     <p>Skriv inn e-posten din</p>

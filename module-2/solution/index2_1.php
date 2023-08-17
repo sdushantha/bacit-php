@@ -11,8 +11,6 @@ if (realpath(__FILE__) === realpath($_SERVER['SCRIPT_FILENAME'])):
 include "index.php";
 ?>
 
-<?="<h1>$task_name</h1>"?>
-
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // 1. Replace all characters that are not a-z or A-Z
@@ -34,6 +32,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
+<?="<h1>$task_name</h1>"?>
+
 <body>
     <p>Skriv inn etternavnet ditt</p>
     <form method="post">
@@ -45,7 +45,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!-- If the value exists inteh cookie, then output the results, if not, dont output anything. This allows us to not show the previous submission -->
 <?php if (!empty($_COOKIE["lastname"])) echo "<p>Etternavnet ditt er " . htmlspecialchars($_COOKIE['lastname']) . "</p>" ?>
 <?php if (!empty($_COOKIE["length"])) echo "<p>Etternavnet ditt har ". htmlspecialchars($_COOKIE['length']) . " bokstaver</p>" ?>
-
 
 <?php
 // Remove cookies when the user reloads the page
@@ -66,6 +65,5 @@ if (isset($_COOKIE["length"])) {
     setcookie("length", "", time() - 3600, "/");
 }
 ?>
-
 <?php generate_footer();?>
 <?php endif;?>

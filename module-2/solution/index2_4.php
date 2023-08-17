@@ -11,18 +11,66 @@ if (realpath(__FILE__) === realpath($_SERVER['SCRIPT_FILENAME'])):
 include "index.php";
 ?>
 
-<?="<h1>$task_name</h1>"?>
-
 <?php
-function difference($num1, $num2){
-    return $num1 - $num2;
-}
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $tall1 = preg_replace('/[^0-9\-]/', '', $_POST["tall1"]);
+    $tall2 = preg_replace('/[^0-9\-]/', '', $_POST["tall2"]);
+    $diff = $tall1 - $tall2;
 
-$tall1 = 34;
-$tall2 = 12;
+    // Store the values in the cookies. By doing this we can clear the previous submission
+    // when the user reloads the page
+    setcookie("tall1", $tall1, time() + 3600, "/");
+    setcookie("tall2", $tall2, time() + 3600, "/");
+    setcookie("diff", $diff, time() + 3600, "/");
+
+    // Redirect back to the same page.
+    header("Location: " . $_SERVER["REQUEST_URI"]);
+
+    // Prevents further execution of code and issues
+    exit();
+}
 ?>
 
-<p>Differansen mellom <?=$tall1?> og <?=$tall2?> er <?=htmlentities(difference($tall1, $tall2));?>
+<?="<h1>$task_name</h1>"?>
+
+<body>
+    <p>Skriv inn to tall</p>
+    <form method="post">
+        <input type="number" name="tall1" required>
+        <input type="number" name="tall2" required>
+        <input type="submit" value="Send">
+    </form>
+</body>
+
+<?php if (!empty($_COOKIE["tall1"])) echo "<p>Differansen mellom " . htmlspecialchars($_COOKIE['tall1']) . " og " . htmlspecialchars($_COOKIE['tall2']) . " er " . htmlspecialchars($_COOKIE['diff']) . "</p>" ?>
+
+<?php
+// Remove cookies when the user reloads the page
+// This way the previous results wont be shown on the page after reloading
+if (isset($_COOKIE["tall1"])) {
+    // Removes tall1 from the $_COOKIE array
+    unset($_COOKIE["tall1"]);
+
+    // Removes tall1 from browser's cookie storage 
+    setcookie("tall1", "", time() - 3600, "/");
+}
+
+if (isset($_COOKIE["tall2"])) {
+    // Removes tall2 from the $_COOKIE array
+    unset($_COOKIE["tall2"]);
+
+    // Removes tall2 from browser's cookie storage 
+    setcookie("tall2", "", time() - 3600, "/");
+}
+
+if (isset($_COOKIE["diff"])) {
+    // Removes diff from the $_COOKIE array
+    unset($_COOKIE["diff"]);
+
+    // Removes diff from browser's cookie storage 
+    setcookie("diff", "", time() - 3600, "/");
+}
+?>
 
 <?php generate_footer();?>
 <?php endif;?>
