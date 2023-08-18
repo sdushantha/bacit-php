@@ -45,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </form>
 </body>
 
-<!-- If the value exists inteh cookie, then output the results, if not, dont output anything. This allows us to not show the previous submission -->
+<!-- If the value exists in the cookie, then output the results, if not, dont output anything. This allows us to not show the previous submission -->
 <?php if (!empty($_COOKIE["lastname"])) echo "<p>Etternavnet ditt er " . htmlspecialchars($_COOKIE['lastname']) . "</p>" ?>
 <?php if (!empty($_COOKIE["length"])) echo "<p>Etternavnet ditt har ". htmlspecialchars($_COOKIE['length']) . " bokstaver</p>" ?>
 
