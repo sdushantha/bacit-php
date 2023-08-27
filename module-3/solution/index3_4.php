@@ -22,6 +22,7 @@ include "index.php";
             <?php
             $kommuner = array("Kristiansand", "Lillesand", "Birkenes", "Harstad", "Kvæfjord", "Tromsø", "Bergen", "Trondheim", "Bodø", "Alta");
 
+            // We go through each kommune in the array and create an option in our drop-down menu with kommune
             foreach ($kommuner as $kommune){
                 echo "<option value=\"$kommune\">$kommune</option>";
             }
@@ -36,6 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if (isset($_POST["kommune"])) {
         $kommune = $_POST["kommune"];
 
+        // We could use case-statement, but since some keys have same values, match-statements are better suited
         $fylke = match ($kommune) {
             "Kristiansand", "Lillesand", "Birkenes" => "Agder",
             "Harstad", "Kværfjord", "Tromsø" => "Troms og Finnmark",

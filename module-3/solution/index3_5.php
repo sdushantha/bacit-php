@@ -31,13 +31,15 @@ $grain_gram= 0.035;
 $total_grains = 1;
 
 for ($i = 1; $i <= $chess_board_size; $i++) {
-    // Antall korn på ruten
-    $grains = pow(2, $i - 1); 
+    $grains = 2 ** ($i - 1); 
 
+    // Append currrent amount of grains to the total
+    // This value will be used in the end to evaluate total weight of
+    // all grains in tonnes
     $total_grains += $grains;
 
-    // Convert gram to tonn
-    $tonnes = $total_grains * $grain_gram/ 1000000;
+    // grams to tonnes is gram/1,000,000
+    $tonnes = $total_grains * $grain_gram / 1000000;
 
     echo "<tr><td>$i</td><td>$grains</td><td>$tonnes</td></tr>";
 }
@@ -52,10 +54,6 @@ echo "Total vekt i tonn: " . $total_grains*$grain_gram/1000000 . " tonn";
 echo "<br>";
 echo "<br>";
 ?>
-
-
-
-
 
 <?php generate_footer();?>
 <?php endif;?>

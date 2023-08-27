@@ -28,8 +28,15 @@ include "index.php";
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $saldo = $_POST["saldo"];
-    $rente = $_POST["rente"]/100; // Divide by 100 to turn % into decimal
+
+    // Divide by 100 to turn % into decimal
+    $rente = $_POST["rente"]/100;
     $år = $_POST["år"];
+
+    // number_format() allows us to display the number with decimals
+    echo "Startsaldo: ". number_format($saldo, 2, '.', '') . "<br>";
+    echo "Rente: ". $_POST["rente"] . "% <br>";
+    echo "Antall år: ". $år . "<br>";
 
     for($i = 0; $i < $år+1; $i++){
         // number_format() allows us to display the number with decimals
