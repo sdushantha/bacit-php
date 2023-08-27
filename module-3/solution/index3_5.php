@@ -15,6 +15,47 @@ include "index.php";
 
 <?="<h1>$task_name</h1>"?>
 
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
+<table>
+<tr><th>Rute</th><th>Hvetekorn</th><th>Tonn</th></tr>
+
+<?php
+$chess_board_size = 64;
+$grain_gram= 0.035;
+$total_grains = 1;
+
+for ($i = 1; $i <= $chess_board_size; $i++) {
+    // Antall korn på ruten
+    $grains = pow(2, $i - 1); 
+
+    $total_grains += $grains;
+
+    // Convert gram to tonn
+    $tonnes = $total_grains * $grain_gram/ 1000000;
+
+    echo "<tr><td>$i</td><td>$grains</td><td>$tonnes</td></tr>";
+}
+?>
+</table>
+
+<?php
+echo "<br>";
+echo "Total antall korn: " . $total_grains;
+echo "<br>";
+echo "Total vekt i tonn: " . $total_grains*$grain_gram/1000000 . " tonn";
+echo "<br>";
+echo "<br>";
+?>
+
+
+
+
 
 <?php generate_footer();?>
 <?php endif;?>

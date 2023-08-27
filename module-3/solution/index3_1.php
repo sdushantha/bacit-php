@@ -19,6 +19,7 @@ include "index.php";
 $eventDate = new DateTime("2023-08-04");
 $currentDate = new DateTime();
 
+// We use a one-liner if-statement to decide what response to output
 echo "<p>Bursdagen til Obama er den " . $eventDate->format("d/m/Y") . ($eventDate > $currentDate ? ". Bursdagen hans er i fremtiden.":". Han har allerede hatt bursdagen sin.")
 ?>
 
