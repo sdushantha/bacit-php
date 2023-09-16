@@ -83,6 +83,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo implode("<br> ", $error_messages);
         } else {
 
+            echo "Bruker opprettet!<br><br>";
+
             // Output user's information as a table
             echo "<b>Info om deg</b><br><table>";
             foreach ($user_info as $key => $value){

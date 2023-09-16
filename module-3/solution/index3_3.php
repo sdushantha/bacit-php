@@ -42,8 +42,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // number_format() allows us to display the number with decimals
         echo "$i.År - Saldo: " . number_format($saldo, 2, '.', '') . "<br>";
 
+        // Calculate next saldo
         // We round the number to 2 decimals places
-        $saldo = round(($saldo*$rente)+$saldo, 2);
+        $saldo = round(($saldo * $rente) + $saldo, 2);
     }
 }
 ?>

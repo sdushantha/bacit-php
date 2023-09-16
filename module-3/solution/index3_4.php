@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             "Alta" => "Finnmark"
         };
 
-        echo "<p>" . $kommune . " ligger i " . "$fylke" . "</p>";
+        echo "<p>" . $kommune . " ligger i " . "$fylke" . " fylke</p>";
     }
 }
 ?>

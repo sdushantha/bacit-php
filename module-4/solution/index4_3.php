@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         if (!empty($update_messages)) {
             echo implode("<br>", $update_messages);
         } else {
-            echo "Nothing Changed :)";
+            echo "Ingenting har blitt endret :)";
         }
     } else {
         echo implode("<br>", $error_messages);
