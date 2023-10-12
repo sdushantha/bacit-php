@@ -35,6 +35,7 @@ class Validate {
     }
 
     private static function isPhoneNumber($phonenumber){
+        return preg_match("/^\d{8}$/", $phonenumber);
     }
 
     private static function isPassword($password){
