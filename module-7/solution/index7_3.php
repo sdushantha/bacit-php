@@ -15,7 +15,7 @@ include "index.php";
 
 <?="<h1>$task_name</h1>"?>
 
-<?="<p>HUSK Å FULLFØRE DENNE OPPGAVEN!</p>"?>
+<?="<p>Skal demonstreres med MyPHPAdmin</p>"?>
 
 <?php generate_footer();?>
 <?php endif;?>
