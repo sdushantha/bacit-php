@@ -28,16 +28,19 @@ if (realpath(__FILE__) === realpath($_SERVER['SCRIPT_FILENAME'])) :
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $current_date = date("Y-m-d");
         $order = $_POST["sort"];
-        // The sorting method cant be apart of the prepare statement. It has to directly in the query
+
         $stmt = $pdo->prepare("SELECT * FROM booking WHERE time >= :current_date ORDER BY time $order");
-        $stmt->execute(["current_date" => $current_date]);
+        $stmt->bindParam(':current_date', $current_date);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         echo "<table border='1'>
             <tr>
                 <th>Time</th>
                 <th>Subject</th>
                 <th>Description</th>
             </tr>";
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        foreach ($rows as $row) {
             echo "<tr>";
             echo "<td>" . $row["time"] . "</td>";
             echo "<td>" . $row["subject"] . "</td>";
