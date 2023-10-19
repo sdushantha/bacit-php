@@ -1,0 +1,27 @@
+RewriteEngine On
+
+# Rewrite /booking/ or /booking to /www/views/booking/
+RewriteRule ^booking/?$ /module-8/solution/www/views/booking/ [L]
+
+# Rewrite /login/ or /login to /www/views/login/
+RewriteRule ^login/?$ /module-8/solution/www/views/login/ [L]
+
+# Rewrite /signup/ or /signup to /www/views/signup/
+RewriteRule ^signup/?$ /module-8/solution/www/views/signup/ [L]
+
+# Rewrite /edit/ or /edit to /www/views/edit/
+RewriteRule ^edit/?$ /module-8/solution/www/views/edit/ [L]
+
+# Rewrite /dashboard/ or /dashboard to /www/views/dashboard/
+RewriteRule ^dashboard/?$ /module-8/solution/www/views/dashboard/ [L]
+
+# Rewrite /logout/ or /logout to /www/views/logout/
+RewriteRule ^logout/?$ /module-8/solution/www/views/logout/ [L]
+
+# Rewrite /profile/ or /profile to /www/views/profile/
+RewriteRule ^profile/?$ /module-8/solution/www/views/profile/ [L]
+
+# Rewrite /change-password/ or /change-password to /www/views/change-password/
+RewriteRule ^change-password/?$ /module-8/solution/www/views/change-password/ [L]
+
+ErrorDocument 404 /module-8/solution/www/views/private/errors/404.html
