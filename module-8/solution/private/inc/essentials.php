@@ -8,6 +8,7 @@ require_once(__DIR__ . "/authcheck.php");
 // This function is not needed if the user is already visiting /login or /signup
 if (!str_starts_with($_SERVER['REQUEST_URI'], '/login') && !str_starts_with($_SERVER['REQUEST_URI'], '/signup')) {
     if (!$logged_in) {
+        $_SESSION["redirect"] = $_SERVER["REQUEST_URI"];
         header("Location: /login");
     }
 }

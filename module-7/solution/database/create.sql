@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS bookingsystem;
+CREATE DATABASE IF NOT EXISTS modphp;
 
-USE bookingsystem;
+USE modphp;
 
 CREATE TABLE IF NOT EXISTS user
   (

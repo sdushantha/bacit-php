@@ -1,7 +1,7 @@
 <?php
 $host = "db";
 $port = 3306;
-$dbname = "bookingsystem";
+$dbname = "modphp";
 $username = "root";
 $password = "root";
 try {

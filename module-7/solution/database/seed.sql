@@ -1,4 +1,4 @@
-USE bookingsystem;
+USE modphp;
 
 INSERT INTO user (username, password_hash, firstname, lastname, email, prefered_supervisor, prefered_room)
 VALUES

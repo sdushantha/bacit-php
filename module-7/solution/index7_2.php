@@ -41,10 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 'u' flag is used for Unicode support as we inlcude øæå
     $valid_name_regex = "/^[A-Za-zøæåØÆÅ\s]+$/u";
     $valid_username_regex = "/^[a-z0-9_-]{3,15}$/";
+    $valid_password_regex = "/^[a-z0-9_-]{3,15}$/";
 
     $errors[] = filter_var($email, FILTER_VALIDATE_EMAIL) ? "" : "Your email is invalid";
     $errors[] = preg_match($valid_name_regex, $first_name) ? "" : "Your first name is invalid";
     $errors[] = preg_match($valid_name_regex, $last_name) ? "" : "Your last name is invalid";
+    $errors[] = preg_match($valid_passowrd_regex, $password) ? "" : "Your last name is invalid";
     $errors[] = preg_match($valid_username_regex, $username) ? "" : "Your username is invalid. Valid username format: <b>[a-z0-9_-]{3,15}</b>";
 
     // Remove blank values in the array. Since we used ternary operators above,

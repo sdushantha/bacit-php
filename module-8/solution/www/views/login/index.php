@@ -17,8 +17,10 @@ try {
         if ($user && password_verify($password, $user->getPasswordHash())) {
             $_SESSION['user_id'] = $user->getId();
             $_SESSION['username'] = $user->getUsername();
+            
+            $location = $_SESSION["redirect"] ?? "/dashboard";
 
-            header("Location: /dashboard");
+            header("Location: $location");
             exit();
         } else {
             $errorMessage = "Wrong username or password";
@@ -84,6 +86,14 @@ try {
                                 <?php
                                 echo "You have been logged out";
                                 unset($_SESSION["logout"]);
+                                ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (isset($_SESSION["redirect"])) : ?>
+                            <div class="alert alert-warning text-center" role="alert">
+                                <?php
+                                echo "You need to login to continue";
                                 ?>
                             </div>
                         <?php endif; ?>
