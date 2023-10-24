@@ -12,22 +12,18 @@ if (realpath(__FILE__) === realpath($_SERVER['SCRIPT_FILENAME'])) :
     // index.php is included as we use the generate_footer() function from it
     include "index.php";
     if (isset($_GET["file"])) {
-        $selection = $_GET["file"];
+        $filename = $_GET["file"];
+        if ($filename === "mod-9" || $filename === "mod-6") {
+            $filepath = "documents/$filename.pdf";
+            if (file_exists("$filepath")) {
+                header("Content-Type: application/pdf");
+                header("Content-Disposition: attachment; filename=\"$filename.pdf\"");
 
-        if ($selection === "mod-9") {
-            $filename = "mod-9";
-        } elseif ($selection === "mod-6") {
-            $filename = "mod-6";
-        }
-
-        if (file_exists("documents/$filename.pdf")) {
-            header("Content-Type: application/pdf");
-            header("Content-Disposition: attachment; filename=\"$filename.pdf\"");
-
-            readfile("documents/$filename.pdf");
-            exit();
-        } else {
-            echo "Sry, file not found";
+                readfile("$filepath");
+                exit();
+            } else {
+                echo "Sry, file not found";
+            }
         }
     }
 ?>

@@ -2,7 +2,7 @@
 // The reason why we store the task name in a variable instead of directly
 // using it in the HTML code is because this file gets inlcuded by index.php,
 // which then access $task_name so that it can add it to it's list
-$task_name = "";
+$task_name = "Oppgave 3: last opp fil";
 
 // In index.php we import this file so that we can access $task_name.
 // Without the if-statement below, the HTML code will displayed in index.php.
